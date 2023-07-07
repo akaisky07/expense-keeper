@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .total-expenses {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .category-list li span {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .add-expense-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <div class="container">
+        <div class="total-expenses">Total Expenses: ${{ total_expenses }}</div>
+        <ul class="category-list">
+            {% for category, amount in categories %}
+                <li>
+                    <span>{{ category }}:</span>
+                    <span>${{ amount }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <button class="add-expense-button" onclick="location.href='/add_expense'">Add Expense</button>
+    </div>
+</body>
+</html>
+
